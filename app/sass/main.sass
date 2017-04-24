@@ -1,0 +1,63 @@
+@import libs
+@import vars
+@import settings
++reset()
+.main-head
+  height: 100vh
+
+.player
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  z-index: -1
+
+.logo
+  position: fixed
+  left: 50%
+  top: 26px
+  margin-left: -35px
+
+.head-title
+  +row-flex()
+  justify-content: space-between
+  align-items: center
+  height: 100%
+  margin: 0 2%
+  font-family: "MuseoSansRounded", Serif
+  font-size: 50px
+  font-weight: 900
+  line-height: 1.2
+  letter-spacing: 5px
+  color: $white
+  text-transform: uppercase
+  &_right
+    text-align: right
+
+.head__icons-arrow
+  position: relative
+  width: 60px
+  height: 60px
+  border: 2px solid $white
+  border-radius: 50%
+  &_left
+    position: absolute
+    top: 40%
+    left: 15px
+  &_right
+    position: absolute
+    top: 40%
+    right: 15px
+  &::before
+    content: ''
+    width: 0
+    height: 0
+    padding: 72px
+    border: 1px dashed $white
+    opacity: .2
+    border-radius: 50%
+
+
+
+
+
