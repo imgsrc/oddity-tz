@@ -45,14 +45,17 @@ $(function () {
   });
 
   /*
-   * Custom scrollbar plugin (Jquery)
+   * Hide description on hover for project item
    * **************************************
    */
-  $('.aside-list').mCustomScrollbar({
-    alwaysShowScrollbar: 0,
-    documentTouchScroll: true
+  var projectItem = $('.aside-list__item');
+  projectItem.each(function () {
+    $(this).on('mouseover', function () {
+      $(this).children().addClass('active');
+    });
+    $(this).on('mouseout', function () {
+      $(this).children().removeClass('active');
+    });
   });
-
-
 
 });
