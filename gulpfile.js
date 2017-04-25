@@ -36,6 +36,7 @@ gulp.task('scripts', function () {
     'node_modules/jquery/dist/jquery.js',
     'node_modules/mobile-detect/mobile-detect.js',
     'node_modules/jquery.mb.vimeo_player/dist/jquery.mb.vimeo_player.js',
+    'node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js',
     'app/js/common.js'
   ])
       .pipe(concat('scripts.min.js'))

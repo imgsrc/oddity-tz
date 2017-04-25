@@ -1,4 +1,8 @@
 $(function () {
+  /*
+   * Vimeo as background
+   * **************************************
+   */
   $('.player').vimeo_player({
     videoURL: 'https://vimeo.com/152674329',
     containment: 'header',
@@ -38,6 +42,15 @@ $(function () {
       // Replace image with new SVG
       $img.replaceWith($svg);
     }, 'xml');
+  });
+
+  /*
+   * Custom scrollbar plugin (Jquery)
+   * **************************************
+   */
+  $('.aside-list').mCustomScrollbar({
+    alwaysShowScrollbar: 0,
+    documentTouchScroll: true
   });
 
 
