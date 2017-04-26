@@ -12,7 +12,6 @@ var gulp = require('gulp'),
     cssnano = require('cssnano'),
     autoprefixer = require('autoprefixer'),
     pxtorem = require('postcss-pxtorem'),
-    toRem = require('2rem'),
 
     del = require('del'),
     imagemin = require('gulp-imagemin'),
@@ -24,13 +23,7 @@ var gulp = require('gulp'),
     smart = require("smart-grid"),
     notify = require("gulp-notify");
 
-// gulp.task('smart', function () {
-//     dest: 'app/sass/precss',
-//     outputStyle: 'sass',
-//     filename: '_smart-grid',
-// });
 
-// Скрипты проекта
 gulp.task('scripts', function () {
   return gulp.src([
     'node_modules/jquery/dist/jquery.js',
@@ -59,15 +52,11 @@ gulp.task('postcss', function () {
     pxtorem({
       rootValue: 16,
       unitPrecision: 5,
-      propList: ['font', 'font-size', 'line-height', 'letter-spacing'],
-      selectorBlackList: ['body', 'html'],
+      propList: ['font', 'font-size'],
+      selectorBlackList: ['body', 'html', 'before', 'line-height', 'letter-spacing'],
       replace: true,
       mediaQuery: false,
       minPixelValue: 6
-    }),
-    toRem({
-      base: 16,
-      mini: 6
     }),
     cssnano(),
     fonts()
