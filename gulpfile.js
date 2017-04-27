@@ -144,7 +144,7 @@ gulp.task('imagemin', function () {
       .pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('build', ['removedist', 'generate-favicon', 'inject-favicon-markups', 'imagemin', 'postcss', 'scripts'], function () {
+gulp.task('build', ['removedist', 'imagemin', 'postcss', 'scripts'], function () {
 
   var buildFiles = gulp.src([
     'app/*.html',

@@ -21,11 +21,11 @@ smartgrid('./app/sass/precss', {
       fields: "15px"
     },
     xs: {
-      width: "576px",
+      width: "375px",
       fields: "15px"
     },
     xxs: {
-      width: "400px",
+      width: "320px",
       fields: "15px"
     }
   }

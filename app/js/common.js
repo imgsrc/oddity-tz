@@ -14,7 +14,7 @@ $(function () {
   });
 
   /*
-  * Replace all SVG images with inline SVG
+   * Replace SVG images with inline SVG
   * **************************************
    */
   $('img.img-svg').each(function () {
@@ -57,5 +57,48 @@ $(function () {
       $(this).children().removeClass('active');
     });
   });
+
+  /*
+   * translate of aside when hovering the mouse
+   * **************************************
+   */
+  var left = $('.header__area_left'),
+      right = $('header__area_right'),
+      iconLeft = $('#icons-side_left'),
+      iconRight = $('#icons-side_right'),
+      asideLeft = $('.project-list_left'),
+      asideRight = $('.project-list_right'),
+      header = $('.main-head');
+  left.on('mouseover', function () {
+    iconLeft.addClass('active');
+    asideLeft.addClass('active');
+    header.addClass('active_left');
+  });
+  left.on('mouseout', function () {
+    iconLeft.removeClass('active');
+    asideLeft.removeClass('active');
+    header.removeClass('active_left');
+  });
+  right.on('mouseover', function () {
+    iconRight.addClass('active');
+    asideRight.addClass('active');
+    header.addClass('active_right');
+  });
+  right.on('mouseout', function () {
+    iconRight.removeClass('active');
+    asideRight.removeClass('active');
+    header.removeClass('active_right');
+  });
+  /*
+   Smooth scroll
+   *********************
+   */
+  $("#scroll").on('click', function (e) {
+    e.preventDefault();
+    $("html, body").animate({
+      scrollTop: $("#red").offset().top
+    }, 600);
+  });
+
 
 });

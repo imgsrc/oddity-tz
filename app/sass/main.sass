@@ -2,8 +2,14 @@
 @import vars
 @import settings
 +reset()
+
 .main-head
   height: 100vh
+  position: relative
+  &.active_left
+    left: 320px
+  &.active_right
+    right: 320px
 
 .player
   left: 0
@@ -22,6 +28,7 @@
   +row-flex()
   justify-content: space-between
   align-items: center
+  flex-wrap: nowrap
   height: 100%
   margin: 0 2%
   font-family: "MuseoSansRounded", sans-serif
@@ -44,9 +51,14 @@
   border: 1px dashed rgba($white, .2)
   border-radius: 50%
   &__arrow
-    opacity: 1
-    &.active
-      opacity: .4
+    &_right
+      opacity: 1
+      &.active
+        opacity: .4
+    &_left
+      opacity: 1
+      &.active
+        opacity: .4
 
   .icons-arrow__border
     +row-flex()
@@ -61,6 +73,7 @@
 
 .project-list
   position: absolute
+  margin: 0
   top: 0
   width: 320px
   height: 100%
@@ -68,13 +81,16 @@
   &_left
     left: 0
     transform: translateX(-320px)
+    .active
+      transform: translateX(0)
   &_right
     right: 0
     transform: translateX(320px)
+    .active
+      transform: translateX(0)
 
 .aside-list
   height: 100%
-  list-style-type: none
   overflow-y: scroll
   &::-webkit-scrollbar
     width: 0
@@ -184,6 +200,17 @@
     left: 30%
   &_right
     right: 30%
+
+.header__area
+  position: absolute
+  display: block
+  top: 0
+  width: 20%
+  height: 100%
+  &_left
+    left: 0
+  &_right
+    right: 0
 
 .red
   min-height: 100vh
