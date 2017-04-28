@@ -1,7 +1,7 @@
 $(function () {
 
   var md = new MobileDetect(window.navigator.userAgent);
-  if (!md.phone()) {
+  if (!md.mobile()) {
     /*
      * Vimeo as background
      * **************************************
@@ -11,7 +11,6 @@ $(function () {
       containment: 'header',
       showControls: false,
       autoPlay: true,
-      mobileFallbackImage: '../img/header_bg.jpg',
       mute: true,
       startAt: 0,
       opasity: 1
@@ -19,6 +18,7 @@ $(function () {
     $('header').height($(window).height());
   } else {
     $('.main-head').addClass('mobile');
+    $('.player').remove();
   }
 
 
@@ -44,8 +44,8 @@ $(function () {
       right = $('.header__area_right'),
       iconLeft = $('.head__icons__arrow_left'),
       iconRight = $('.head__icons__arrow_right'),
-      asideLeft = $('.project-list_left'),
-      asideRight = $('.project-list_right'),
+      asideLeft = $('.aside-list_left'),
+      asideRight = $('.aside-list_right'),
       header = $('.main-head');
   left.on('mouseover', function () {
     iconLeft.addClass('active');
