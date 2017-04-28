@@ -1,4 +1,12 @@
 $(function () {
+
+  var md = new MobileDetect(window.navigator.userAgent);
+  if (!md.mobile()) {
+
+    // $('header').height($(window).height());
+  } else {
+    // $('.main-head').addClass('mobile');
+  }
   /*
    * Vimeo as background
    * **************************************
@@ -8,40 +16,10 @@ $(function () {
     containment: 'header',
     showControls: false,
     autoPlay: true,
+    mobileFallbackImage: '../img/header_bg.jpg',
     mute: true,
     startAt: 0,
     opasity: 1
-  });
-
-  /*
-   * Replace SVG images with inline SVG
-  * **************************************
-   */
-  $('img.img-svg').each(function () {
-    var $img = $(this);
-    var imgID = $img.attr('id');
-    var imgClass = $img.attr('class');
-    var imgURL = $img.attr('src');
-    $.get(imgURL, function (data) {
-      // Get the SVG tag, ignore the rest
-      var $svg = $(data).find('svg');
-      // Add replaced image's ID to the new SVG
-      if (typeof imgID !== 'undefined') {
-        $svg = $svg.attr('id', imgID);
-      }
-      // Add replaced image's classes to the new SVG
-      if (typeof imgClass !== 'undefined') {
-        $svg = $svg.attr('class', imgClass + ' replaced-svg');
-      }
-      // Remove any invalid XML tags as per http://validator.w3.org
-      $svg = $svg.removeAttr('xmlns:a');
-      // Check if the viewport is set, if the viewport is not set the SVG wont't scale.
-      if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
-        $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
-      }
-      // Replace image with new SVG
-      $img.replaceWith($svg);
-    }, 'xml');
   });
 
   /*
@@ -74,9 +52,9 @@ $(function () {
     asideLeft.addClass('active');
     header.addClass('active_left');
   });
-  left.on('mouseout', function () {
-    iconLeft.removeClass('active');
+  asideLeft.on('mouseout', function () {
     asideLeft.removeClass('active');
+    iconLeft.removeClass('active');
     header.removeClass('active_left');
   });
   right.on('mouseover', function () {
@@ -84,9 +62,9 @@ $(function () {
     asideRight.addClass('active');
     header.addClass('active_right');
   });
-  right.on('mouseout', function () {
+  asideRight.on('mouseout', function () {
+    $(this).removeClass('active');
     iconRight.removeClass('active');
-    asideRight.removeClass('active');
     header.removeClass('active_right');
   });
   /*
@@ -100,5 +78,35 @@ $(function () {
     }, 600);
   });
 
+  /*
+   * Replace SVG images with inline SVG
+   * **************************************
+   */
+  $('img.img-svg').each(function () {
+    var $img = $(this);
+    var imgID = $img.attr('id');
+    var imgClass = $img.attr('class');
+    var imgURL = $img.attr('src');
+    $.get(imgURL, function (data) {
+      // Get the SVG tag, ignore the rest
+      var $svg = $(data).find('svg');
+      // Add replaced image's ID to the new SVG
+      if (typeof imgID !== 'undefined') {
+        $svg = $svg.attr('id', imgID);
+      }
+      // Add replaced image's classes to the new SVG
+      if (typeof imgClass !== 'undefined') {
+        $svg = $svg.attr('class', imgClass + ' replaced-svg');
+      }
+      // Remove any invalid XML tags as per http://validator.w3.org
+      $svg = $svg.removeAttr('xmlns:a');
+      // Check if the viewport is set, if the viewport is not set the SVG wont't scale.
+      if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+        $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+      }
+      // Replace image with new SVG
+      $img.replaceWith($svg);
+    }, 'xml');
+  });
 
 });

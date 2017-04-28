@@ -3,9 +3,19 @@
 @import settings
 +reset()
 
+html, body
+  font-family: "MuseoSansRounded", sans-serif
+  overflow-x: hidden
+  font-size: 16px
+  +sm(font-size, 14px)
+  +xs(font-size, 12px)
+
 .main-head
   height: 100vh
   position: relative
+  +xs-block()
+    background: url("../img/header_bg.jpg") no-repeat center top
+    background-size: cover
   &.active_left
     left: 320px
   &.active_right
@@ -33,6 +43,20 @@
   margin: 0 2%
   font-family: "MuseoSansRounded", sans-serif
   font-size: 50px
+  +lg(font-size, 40px)
+  +sm-block()
+    font-size: 30px
+    line-height: 1.33
+    letter-spacing: 5px
+  +xs-block()
+    font-size: 17px
+    line-height: 1.41
+    letter-spacing: 1.7px
+    margin: 0 -2%
+  +xxs-block()
+    font-size: 14px
+    line-height: 1.29
+    letter-spacing: 1.4px
   font-weight: 900
   line-height: 1.2
   letter-spacing: 5px
@@ -78,6 +102,16 @@
   width: 320px
   height: 100%
   background-color: $black
+  //&::before
+  //  content: ""
+  //  display: block
+  //  height: 100%
+  //  position: absolute
+  //  top: 0
+  //  width: 78%
+  //  z-index: 10
+  //  left: 20%
+  //  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), $black 95%)
   &_left
     left: 0
     transform: translateX(-320px)
@@ -102,6 +136,7 @@
     margin-left: 0
     padding-left: 0
     display: block
+    z-index: 15
     height: 20%
     &:hover
       .aside-list__img
@@ -177,6 +212,13 @@
   &::before
     position: absolute
     top: 35px
+    +lg(top, 20px)
+    +sm(top, 30px)
+    +xs-block()
+      top: 17px
+      height: 20px
+      left: 19px
+    +xxs(top, 14px)
     left: 23px
     content: ''
     width: 2px
@@ -191,6 +233,7 @@
   background-color: $coral
   padding: 23px 27px
   border-radius: 1px
+  z-index: 30
   font-size: 12px
   letter-spacing: 0.9px
   text-transform: uppercase
