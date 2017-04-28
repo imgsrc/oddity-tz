@@ -1,26 +1,26 @@
 $(function () {
 
   var md = new MobileDetect(window.navigator.userAgent);
-  if (!md.mobile()) {
-
-    // $('header').height($(window).height());
+  if (!md.phone()) {
+    /*
+     * Vimeo as background
+     * **************************************
+     */
+    $('.player').vimeo_player({
+      videoURL: 'https://vimeo.com/152674329',
+      containment: 'header',
+      showControls: false,
+      autoPlay: true,
+      mobileFallbackImage: '../img/header_bg.jpg',
+      mute: true,
+      startAt: 0,
+      opasity: 1
+    });
+    $('header').height($(window).height());
   } else {
-    // $('.main-head').addClass('mobile');
+    $('.main-head').addClass('mobile');
   }
-  /*
-   * Vimeo as background
-   * **************************************
-   */
-  $('.player').vimeo_player({
-    videoURL: 'https://vimeo.com/152674329',
-    containment: 'header',
-    showControls: false,
-    autoPlay: true,
-    mobileFallbackImage: '../img/header_bg.jpg',
-    mute: true,
-    startAt: 0,
-    opasity: 1
-  });
+
 
   /*
    * Hide description on hover for project item
@@ -41,9 +41,9 @@ $(function () {
    * **************************************
    */
   var left = $('.header__area_left'),
-      right = $('header__area_right'),
-      iconLeft = $('#icons-side_left'),
-      iconRight = $('#icons-side_right'),
+      right = $('.header__area_right'),
+      iconLeft = $('.head__icons__arrow_left'),
+      iconRight = $('.head__icons__arrow_right'),
       asideLeft = $('.project-list_left'),
       asideRight = $('.project-list_right'),
       header = $('.main-head');
