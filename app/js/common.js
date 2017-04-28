@@ -1,11 +1,6 @@
 $(function () {
 
-  var md = new MobileDetect(window.navigator.userAgent);
-  if (!md.mobile()) {
-    /*
-     * Vimeo as background
-     * **************************************
-     */
+  if ($( window ).width() > 1024) {
     $('.player').vimeo_player({
       videoURL: 'https://vimeo.com/152674329',
       containment: 'header',
