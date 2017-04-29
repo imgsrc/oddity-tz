@@ -75,6 +75,12 @@ html, body
   align-items: center
   width: 144px
   height: 144px
+  +xs-block()
+    width: 84px
+    height: 84px
+  +xxs-block()
+    width: 72px
+    height: 72px
   border: 1px dashed rgba($white, .2)
   border-radius: 50%
   &__arrow
@@ -95,6 +101,14 @@ html, body
     padding: 10px
     width: 60px
     height: 60px
+    +xs-block()
+      width: 50px
+      height: 50px
+      padding: 6px
+    +xxs-block()
+      width: 40px
+      height: 40px
+      padding: 2px
     border: 2px solid $white
     border-radius: 50%
 
@@ -243,6 +257,8 @@ html, body
   text-transform: uppercase
   font-family: "MuseoSansRounded", sans-serif
   bottom: 4.5%
+  &:hover
+    background-color: #ec2c1c
   &_left
     left: 30%
   &_right
