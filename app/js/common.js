@@ -16,6 +16,8 @@ $(function () {
     $('.player').remove();
   }
 
+  $('.aside-list').attr('scrolling','no');
+
 
   /*
    * Hide description on hover for project item
