@@ -38,29 +38,30 @@ $(function () {
       right = $('.header__area_right'),
       iconLeft = $('.head__icons__arrow_left'),
       iconRight = $('.head__icons__arrow_right'),
-      asideLeft = $('.aside-list_left'),
-      asideRight = $('.aside-list_right'),
+      asideLeft = $('.project-list_left'),
+      asideRight = $('.project-list_right'),
       header = $('.main-head');
-  left.on('mouseover', function () {
+  left.on('mouseenter', function () {
     iconLeft.addClass('active');
     asideLeft.addClass('active');
     header.addClass('active_left');
   });
-  asideLeft.on('mouseout', function () {
+  left.on('mouseleave', function () {
     asideLeft.removeClass('active');
     iconLeft.removeClass('active');
     header.removeClass('active_left');
   });
-  right.on('mouseover', function () {
+  right.on('mouseenter', function () {
     iconRight.addClass('active');
     asideRight.addClass('active');
     header.addClass('active_right');
   });
-  asideRight.on('mouseout', function () {
+  right.on('mouseleave', function () {
     $(this).removeClass('active');
     iconRight.removeClass('active');
     header.removeClass('active_right');
   });
+
   /*
    Smooth scroll
    *********************
